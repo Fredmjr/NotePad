@@ -4,41 +4,6 @@ import { fileURLToPath } from "url";
 import fs from "fs"
 
 const app = express();
-
-//reading data
-app.get("/read/:titleData", (req, res)=>{
-  let titleDataPath = path.join('/notes', `${req.params.titleData}.md`)
-  fs.readFile(titleDataPath,"utf-8", (err, data)=>{
-    if (err){
-      console.log(err)
-    }
-    res.send(data)
-  } )
-})
-
-
-
-//url path defined
-app.get("/notepad", (req, res) => {
-  //a simple directory defining
-    const dirPath = './notes';
-  //make empty array, loop to get all files with .md stored them in that array. (ET.help AI)
-    const filePaths = [];
-    fs.readdir(dirPath, (error, files) => {
-    files.forEach((file) => {
-    const fileName = path.basename(file, '.md');
-    filePaths.push(fileName);
-  });
-  console.log(filePaths);
-});
-
-//assign array to a variable name (for easy readability) 
-    res.render("notepad", {
-      notePath: filePaths,
-    })
-  })
-
-
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
 //hbs engine set fro broswers
@@ -82,7 +47,48 @@ app.get('/read/:titleData', (req, res)=>{
     res.send(data)
   } )
 })
-  
+ 
+
+//reading data
+app.get("/read/:titleData", (req, res)=>{
+  let titleDataPath = path.join('/notes', `${req.params.titleData}.md`)
+  fs.readFile(titleDataPath,"utf-8", (err, data)=>{
+    if (err){
+      console.log(err)
+    }
+    console.log(data)
+    res.send(data)
+  } )
+})
+app.get("/list",)
+app.get('/test', (req, res)=>{
+
+
+res.send(req.query.q)
+})
+
+
+//url path defined
+app.get("/notepad", (req, res) => {
+  //a simple directory defining
+      //make empty array, loop to get all files with .md stored them in that array. (ET.help AI)
+    const filePaths = [];
+    fs.readdir("./notes", (error, files) => {
+    files.forEach((file) => {
+    const fileName = path.basename(file, '.md');
+    filePaths.push(fileName);
+  });
+  console.log(filePaths);
+});
+
+//assign array to a variable name (for easy readability) 
+    res.render("notepad", {
+      notePath: filePaths,
+    })
+  })
+
+
+ 
 
 //listing to port & printing response on clg
 app.listen(4000, (req, res)=>{

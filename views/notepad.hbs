@@ -9,17 +9,19 @@
     <div id="previewPage">
         <p>preview page</p>
         <button id="createBtn"
-                hx-get="/read/:{{this}}"
-                hx-target="#noteContent"
-                hx-swap="innerHTML"
-                hx-trigger="click"
+
         >create</button>
         <div>
             {{#each notePath}} 
             <div
                 style="display: flex; justify-content:space-between; margin-top:5px; margin-bottom:-2px; font-size: 20px;">
                 <p id="titleFromData" style="margin-top:5px; margin-bottom:-2px; font-size: 20px;">{{this}}</p>
-                <button class="editNote">edit</button>
+                <button class="editNote"
+                hx-get="/read/{{this}}"
+                hx-target="#noteContent"
+                hx-swap="innerHTML"
+                hx-trigger="click"
+                >edit</button>
             </div>
         {{/each}}
         </div>
@@ -49,5 +51,6 @@
     </div>
     <script src="./js/notepad.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/htmx.min.js"></script>
 </body>
 </html>
