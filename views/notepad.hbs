@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notepad</title>
+</head>
+<body>
+    <div id="previewPage">
+        <p>preview page</p>
+        <button id="createBtn"
+                hx-get="/read/:{{this}}"
+                hx-target="#noteContent"
+                hx-swap="innerHTML"
+                hx-trigger="click"
+        >create</button>
+        <div>
+            {{#each notePath}} 
+            <div
+                style="display: flex; justify-content:space-between; margin-top:5px; margin-bottom:-2px; font-size: 20px;">
+                <p id="titleFromData" style="margin-top:5px; margin-bottom:-2px; font-size: 20px;">{{this}}</p>
+                <button class="editNote">edit</button>
+            </div>
+        {{/each}}
+        </div>
+
+    </div>
+    <div id="createPage" style="display: none;">
+        <span id="noteSaveMgs" style="display: none;">note saved!</span>
+        Creating Mode
+        <div>
+            <span></span>
+            
+            <textarea id="title" rows="1"  style="color: black; margin: -5px 0px; width: 70%; overflow-y: hidden; resize: none; outline: none; border: none; font-size: 15px; font-weight: bold; text-transform: uppercase;" placeholder="Note Title"></textarea>
+            <textarea id="paragraph" style="color: black; min-height: 100px; width: 100%; overflow-y: hidden; resize: none;  outline: none; border: none;" placeholder="Begin your jounery right here..."></textarea>
+        </div>
+        <button id="saveBtn">save</button>
+        <button id="closeBtn">close</button>
+    </div>
+        <div id="editPage" style="display: none;">
+        <span id="changesSaveMgs" style="display: none;">changes saved!</span>
+        Editing Mode
+        <div id="noteContent">
+            Contents for notes are shown here
+
+        </div>
+        <button id="appendBtn">save</button>
+        <button id="closeEditPageBtn">close</button>
+    </div>
+    <script src="./js/notepad.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
