@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>notepad</title>
+    <style>body{background-color: burlywood;}</style>
 </head>
 <body>
     <div id="previewPage">
@@ -15,13 +16,17 @@
             {{#each notePath}} 
             <div
                 style="display: flex; justify-content:space-between; margin-top:5px; margin-bottom:-2px; font-size: 20px;">
-                <p id="titleFromData" style="margin-top:5px; margin-bottom:-2px; font-size: 20px;">{{this}}</p>
-                <button class="editNote"
-                hx-get="/read/{{this}}"
+                <p class="noteTitleClass" id="titleFromData" style="margin-top:5px; margin-bottom:-2px; font-size: 20px;">{{this.title}}</p>
+                <span><button class="editNote"
+                hx-get="/note/{{this.id}}"
                 hx-target="#noteContent"
                 hx-swap="innerHTML"
                 hx-trigger="click"
                 >edit</button>
+                <button class="deleteBtn"
+                hx-delete="/notes/{{this.title}}"
+                >delete</button>
+                </span>
             </div>
         {{/each}}
         </div>
