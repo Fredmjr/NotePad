@@ -1,0 +1,204 @@
+body{
+    background: #001827;
+    color: white;
+    font-size: 12px;
+    margin: 0;
+    font-family: Montserrat-Light;
+    position: relative;
+    height: 100vh;
+}
+#welcomeScreen{
+    position: fixed;
+    z-index: 10;
+    background: #001d2f;
+    color: white;
+    height: 100%;
+    width: 100%;
+    
+
+}
+#welcomeConts{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+#welcomeLogo{
+    background: #001d2f;
+border: solid 1px #00ba4a; 
+    width: 53px;
+    height: 53px;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 5px;
+}
+
+#welcome{
+    display: none;
+}
+#navBar{
+    background: #001d2f;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    border-bottom: solid 0.5px rgb(3, 53, 84) ; 
+    font-family: Montserrat-Black;
+}
+
+#headPad{
+    text-align: center; 
+}
+#title{
+    font-weight: bold;
+    font-size: 25px;
+    background: transparent;
+    color:  #00ba4a;
+    margin-top: 5px;  margin-bottom: -5px; width: 70%; overflow-y: 
+    hidden; resize: none; outline: none; 
+    border: none; font-size: 17px; font-weight: bold; 
+}
+#title::placeholder{
+    color:rgba(0, 186, 74, 0.52);
+}
+
+#headPadBtns{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 20px;
+}
+
+.crtBtn{
+    position:fixed;
+    bottom: 20px;
+    right: 20px;
+    /* background: linear-gradient(to right, #2573ff, #00ba4a); */
+    background: #001d2f;
+    border: solid 1px #00ba4a; 
+    width: 53px;
+    height: 53px;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+#previewPage{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#titleFromData::first-letter{
+    text-transform: uppercase;
+}
+.deleteBtn{
+    cursor: pointer;
+}
+.editNote{
+    cursor: pointer;
+}
+#createPage{
+    height: fit-content;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#paragraph{
+    min-height: 100px; width: 100%; overflow-y: hidden; resize: none; background-color:#36363600; color: rgb(208, 207, 207); outline: none; border: none;" placeholder="Begin your jounery right here...
+}
+
+#floatsPanel{
+    position:fixed;
+    bottom: 20px;
+    right: 20px;
+}
+#saveBtn{
+    /* background: linear-gradient(to right, #2573ff, #00ba4a); */
+    background: #001d2f;
+    border: solid 1px #00ba4a; 
+    width: 53px;
+    height: 53px;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 5px;
+}
+
+#closeBtn{
+    /* background: linear-gradient(to right, #2573ff, #00ba4a); */
+    background: #001d2f;
+    border: solid 1px #2573ff; 
+    width: 53px;
+    height: 53px;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+#subNavi{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+#popUp{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 5px;
+}
+#floatsPanel{
+    position:fixed;
+    bottom: 20px;
+    right: 20px;
+}
+#appendBtn{
+    /* background: linear-gradient(to right, #2573ff, #00ba4a); */
+background: #001d2f;
+border: solid 1px #00ba4a; 
+    width: 53px;
+    height: 53px;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 5px;
+}
+
+#closeEditPageBtn{
+    /* background: linear-gradient(to right, #2573ff, #00ba4a); */
+    background: #001d2f;
+    border: solid 1px #2573ff; 
+    width: 53px;
+    height: 53px;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}

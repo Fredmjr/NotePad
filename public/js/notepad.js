@@ -57,3 +57,23 @@ appendBtn.addEventListener('click', ()=>{
         changesSaveMgs.style.display = 'block';
     }, 500)
 })
+
+//title & paragraph heights using js
+title.addEventListener('input', () => {
+    title.style.height = 'auto';
+    title.style.height = title.scrollHeight + 'px';
+});
+
+paragraph.addEventListener('input', () => {
+    paragraph.style.height = 'auto';
+    paragraph.style.height = paragraph.scrollHeight + 'px';
+});
+
+//welcome page
+/* const welcomeScreen= document.getElementById('welcomeScreen');
+
+setTimeout((!sessionStorage.getItem('divShown')) = ()=>{
+    welcomeScreen.style.display = 'none';
+    sessionStorage.setItem('divShown', true);
+}, 2000)
+ */
