@@ -1,6 +1,7 @@
 const title = document.querySelector('#title');
 const paragraph = document.querySelector('#paragraph');
 const titleFromData = document.querySelectorAll('#titleFromData').innerHTML;
+const junkBros = document.getElementsByClassName('junkBros').innerHTML;
 const deleteBtn = document.querySelectorAll('.deleteBtn');
 
 function send (){
@@ -26,15 +27,26 @@ function send (){
 
 saveBtn.addEventListener('click', send)
 
-/* //deleting notes
-function deleteSelectedNnote (){
-    let noteTitleClassObj = titleFromData;
-       let deleteData = {
-        deleteNoteTitle: noteTitleClassObj,
-    };
-    console.log(deleteData)
-}
-//deleting by sending the name of the note
+/* //deleting by sending the name of the note
 deleteBtn.forEach((btn)=>{
-    btn.addEventListener('click', deleteSelectedNnote)
-}) */
+    btn.addEventListener('click', ()=> {
+
+    const noteParentTitle = btn.closest('.noteParentTitle');
+    const titleFromData = noteParentTitle.querySelector('#titleFromData');
+
+    let junkBrosValue = titleFromData.value;
+    let deleteData = {
+        junkBrosKey: junkBrosValue,
+    };
+    console.log(deleteData);
+}
+    )
+})  */
+
+function Delete(id){
+    data = {
+        Id: id,
+    }
+
+    console.log(data)
+}

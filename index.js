@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import fs from "fs"
 import sqlite3 from 'sqlite3'
 import {open} from 'sqlite' 
-import { error } from "console";
+
 
 const db = await open({
   filename: "./database.db",
@@ -58,7 +58,16 @@ app.post("/save",async (req, res) => {
     }
   })
 
-app.delete('/notes/:titleFromData', (req, res)=>{
+//delete note
+app.delete('/delete/:id', (req, res)=>{
+  const id = req.params.id;
+  db.run(`DELETE FROM note WHERE id=?`, [id])
+      res.status(204)
+      console.log('successful deletion!')
+
+});
+
+/* app.delete('/notes/:titleFromData', (req, res)=>{
   let titleFromData = req.params.titleFromData
   fs.unlink(`./notes/${titleFromData}.md`,(err)=>{
     if(err){
@@ -67,7 +76,7 @@ app.delete('/notes/:titleFromData', (req, res)=>{
       res.status(200)
     }
   })
-})
+}) */
 
 //redading the file specified in the file path
 app.get('/read/:titleData', (req, res)=>{
