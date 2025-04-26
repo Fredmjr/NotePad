@@ -48,15 +48,15 @@ closeEditPageBtn.addEventListener('click', ()=>{
     previewPage.style.display = 'block';
 })
 
-
-appendBtn.addEventListener('click', ()=>{
+//feature not yet added
+/* appendBtn.addEventListener('click', ()=>{
     setTimeout(()=>{
         setTimeout(()=>{
             changesSaveMgs.style.display = 'none';
         }, 3000)
         changesSaveMgs.style.display = 'block';
     }, 500)
-})
+}) */
 
 //title & paragraph heights using js
 title.addEventListener('input', () => {
@@ -77,3 +77,26 @@ setTimeout((!sessionStorage.getItem('divShown')) = ()=>{
     sessionStorage.setItem('divShown', true);
 }, 2000)
  */
+
+//reloading page once note is deleted
+const deleteBtn = document.querySelectorAll('.deleteBtn');
+deleteBtn.forEach((btn)=>{
+    btn.addEventListener('click', ()=> {
+/*         location.reload(); */
+        setTimeout(()=>{
+            location.reload();
+        }, 200)
+}
+    )
+})
+
+//reloading page once is created
+closeBtn.addEventListener('click', ()=>{
+    /* location.reload(); */
+    document.body.opacity = 0;
+    setTimeout(()=>{
+        location.reload();
+    }, 300);
+})
+
+//show save page

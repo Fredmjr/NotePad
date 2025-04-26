@@ -2,7 +2,6 @@ const title = document.querySelector('#title');
 const paragraph = document.querySelector('#paragraph');
 const titleFromData = document.querySelectorAll('#titleFromData').innerHTML;
 const junkBros = document.getElementsByClassName('junkBros').innerHTML;
-const deleteBtn = document.querySelectorAll('.deleteBtn');
 
 function send (){
     let data = {
@@ -10,7 +9,7 @@ function send (){
         paragraphData: paragraph.value
     };
 
-    console.log(data)
+/*     console.log(data) */
 
     fetch('/save', {
         method: 'POST',
@@ -48,5 +47,5 @@ function Delete(id){
         Id: id,
     }
 
-    console.log(data)
+/*     console.log(data) */
 }

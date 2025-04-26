@@ -42,13 +42,13 @@ if(!fs.existsSync(path.join(__dirname, 'notes'))){
 
 app.post("/save",async (req, res) => {
     const {titleData, paragraphData} = req.body
-    console.log(titleData, paragraphData)
+    /* console.log(titleData, paragraphData) */
     try{
       const results = await db.run(`
         INSERT INTO note (title, body) VALUES (?, ?)
         `, [titleData, paragraphData])
-        console.log(results)
-        res.json('data received')
+        /* console.log(results) */
+/*         res.json('data received') */
     }
     catch(err){
       console.log(err)
@@ -63,7 +63,8 @@ app.delete('/delete/:id', (req, res)=>{
   const id = req.params.id;
   db.run(`DELETE FROM note WHERE id=?`, [id])
       res.status(204)
-      console.log('successful deletion!')
+      
+/*       console.log('successful deletion!') */
 
 });
 
@@ -110,8 +111,6 @@ console.log(error)  }
 })
 
 app.get('/test', (req, res)=>{
-
-
 res.send(req.query.q)
 })
 
@@ -122,7 +121,7 @@ app.get("/notepad", async (req, res) => {
     const Notes = await db.all(`
       SELECT * FROM note
       `)
-      console.log(Notes)
+/*       console.log(Notes) */
       res.render("notepad", {
         notePath: Notes,
       }) 
@@ -137,5 +136,5 @@ console.log(error)  }
 
 //listing to port & printing response on clg
 app.listen(4750, (req, res)=>{
-    console.log('Application is in service!')
+    /* console.log('Application is in service!') */
 })

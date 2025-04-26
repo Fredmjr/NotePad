@@ -6,6 +6,7 @@ body{
     font-family: Montserrat-Light;
     position: relative;
     height: 100vh;
+    transition: opacity 0.2s;
 }
 #welcomeScreen{
     position: fixed;
@@ -64,7 +65,7 @@ border: solid 1px #00ba4a;
     font-size: 25px;
     background: transparent;
     color:  #00ba4a;
-    margin-top: 5px;  margin-bottom: -5px; width: 70%; overflow-y: 
+    margin-top: 5px;  margin-bottom: -5px; width: 100%; overflow-y: 
     hidden; resize: none; outline: none; 
     border: none; font-size: 17px; font-weight: bold; 
 }
@@ -111,7 +112,7 @@ border: solid 1px #00ba4a;
 }
 #createPage{
     height: fit-content;
-    padding-top: 15px;
+    padding-top: 7px;
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
@@ -166,6 +167,7 @@ border: solid 1px #00ba4a;
     align-items: center; 
     justify-content: space-between;
     gap: 5px;
+    font-size: 9px;
 }
 #floatsPanel{
     position:fixed;
@@ -201,4 +203,20 @@ border: solid 1px #00ba4a;
     display: flex;
     justify-content: center;
     align-items: center; 
+}
+
+#editPage{
+    height: fit-content;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#floatsPanelContent{
+    position:fixed;
+    bottom: 20px;
+    right: 20px;
+}
+#noteContent{
+word-wrap: break-word;
 }

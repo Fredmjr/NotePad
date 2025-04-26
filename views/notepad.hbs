@@ -36,7 +36,7 @@
     </div>
     <div id="navBar">
         <span id="notePadLogo">
-            <img  src="/vectors/logos/NotePad-Logo.png" width="70" alt="">
+            <img  src="/vectors/logos/NotePad-Logo.png" width="80" alt="">
         </span>
         <span>
             <img src="/vectors/icons/menu (1).png" width="25" alt="" style="filter: brightness(0) invert(1);">
@@ -55,20 +55,20 @@
            
             
         </span>
-        <div>
+        <div> 
             {{#each notePath}} 
             <div 
                 style="display: flex; justify-content:space-between; margin-top:5px; margin-bottom:-2px; font-size: 20px;">
-                <p class="noteTitleClass" id="titleFromData" style="margin-top:5px; margin-bottom:-2px; font-size: 12px; padding-top: 7px; padding-bottom: 7px;">{{this.title}}</p>
-                <span>
+                <p class="noteTitleClass" id="titleFromData" style="margin-top:5px; margin-bottom:-2px; font-size: 12px; padding-top: 12px; padding-bottom: 12px; white-space-nowrap; line-clamp: 1; text-overflow: ellipsis; width: 70%; overflow: hidden;">{{this.title}}</p>
+                <span style="display: flex; flex-wrap: nowrap; display: justify-content: space-between; align-items: center; gap: 3px; padding-left: 5px;">
                     <span class="editNote"
                     hx-get="/note/{{this.id}}"
                     hx-target="#noteContent"
                     hx-swap="innerHTML"
-                    hx-trigger="click"><img src="/vectors/icons/edit.png" alt="" width="21" height="auto"></span>
+                    hx-trigger="click"><img src="/vectors/icons/edit.png" alt="" width="15" height="auto"></span>
                     <span class="deleteBtn" onclick="Delete({{id}})" hx-delete="/delete/{{id}}">
                     {{!-- just testing if i can delete this note --}}
-                    <img src="/vectors/icons/trash-bin.png" alt="" width="16" height="auto"></span>    
+                    <img src="/vectors/icons/trash-bin.png" alt="" width="11" height="auto"></span>    
                 </span>
             </div>
             {{/each}}
@@ -76,7 +76,6 @@
     </div>
     <div id="createPage" style="display: none;">
         <div id="subNavi">
-            <span>Creating Mode</span>
             <span id="noteSaveMgs" style="display: none;">
             <span id="popUp">
                 <img src="/vectors/icons/quality.png"  width="16" alt="">
@@ -107,15 +106,18 @@
     </div>
         <div id="editPage" style="display: none;">
         <span id="changesSaveMgs" style="display: none;">changes saved!</span>
-        Editing Mode
-        <div id="noteContent">
+        {{!-- Editing Mode --}}
+        <div id="noteContentContainer">
+            <div id="noteContent">
             Contents for notes are shown here
-
+            </div>
         </div>
+
          <div id="floatsPanelContent">
-            <button id="appendBtn">
+            {{!-- still working on this append feature --}}
+            {{!-- <button id="appendBtn">
                 <img src="/vectors/icons/savebtnv2.png" width="20" alt="">
-            </button>
+            </button> --}}
             <button id="closeEditPageBtn">
                 <img src="/vectors/icons/closebtnv2.png" width="16" alt="">
             </button>
