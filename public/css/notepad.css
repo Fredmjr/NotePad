@@ -220,3 +220,102 @@ border: solid 1px #00ba4a;
 #noteContent{
 word-wrap: break-word;
 }
+
+#menuHub{
+    position: relative;
+    cursor: pointer;
+}
+#menuDropdown{
+    position: absolute;
+    bottom: -200px;
+    right: 0px;
+    background: linear-gradient(to right, #2573ff, #00ba4a);
+    border-radius: 3px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+#menuDropdownConts{
+    width: 98%;
+    height: 98%;
+    text-wrap: nowrap;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    font-size: 10px;
+    font-family: Montserrat-Light;
+    background: #001d2f;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 3px;
+}
+
+.routBtn{
+    padding-left: 7px;
+    padding-right: 7px;
+    display: flex; 
+    align-items: center;
+    gap: 5px;
+}
+
+.routBtn:hover{
+    color: rgb(0, 186, 74);
+    cursor: pointer;
+}
+.breakerBar{
+    width: 100%; height: 1px; background: linear-gradient(to right,rgba(37, 113, 255, 0.66),rgba(0, 186, 74, 0.65)); filter: opacity(40%);
+}
+
+#notBar{
+    background: #001d2f; 
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 3px;
+    display: flex; 
+    justify-content:space-between;
+    align-items: center;
+    margin-top:5px; margin-bottom:-2px; font-size: 20px;
+}
+
+#secAddBtn{
+    background: linear-gradient(to right, #2573ff, #00ba4a); 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    gap: 5px;
+    border-radius: 3px;
+}
+.pageConstructionMgs{
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.menuPageFeaIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.menuPageFeaTitle{
+    color:rgba(255, 255, 255, 0.8);
+    font-size: 15px;    
+    text-align: center; 
+    margin-top: 5px;
+    margin-bottom: -2px;
+}
+
+.menuPageFeaMgs{
+    color:rgba(255, 0, 0, 0.71);
+    font-size: 10px;
+    text-align: center;
+}

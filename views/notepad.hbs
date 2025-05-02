@@ -38,91 +38,142 @@
         <span id="notePadLogo">
             <img  src="/vectors/logos/NotePad-Logo.png" width="80" alt="">
         </span>
-        <span>
-            <img src="/vectors/icons/menu (1).png" width="25" alt="" style="filter: brightness(0) invert(1);">
+        <span id="menuHub">
+            <img id="BurgarBtn" src="/vectors/icons/menu (1).png" width="25" alt="" style="filter: brightness(0) invert(1);">
+            <div id="menuDropdown" style="display: none;">
+                <div id="menuDropdownConts"> 
+                <ul class="routBtn" id="homeBtn"><img src="/vectors/icons/home.png" width="16" alt="" style="filter: brightness(0) invert(1);">Home</ul> 
+                 <div class="breakerBar"></div>   
+                <ul class="routBtn" id="trashBtn"><img src="/vectors/icons/trash-binv2.png" width="14" alt="" style="filter: brightness(0) invert(1);">Trash</ul>
+                <ul class="routBtn" id="lockedBtn"><img src="/vectors/icons/privacy.png" width="16" alt="" style="filter: brightness(0) invert(1);">Locked Notes</ul>
+                <div class="breakerBar"></div>  
+                <ul class="routBtn" id="howToUseBtn"><img src="/vectors/icons/question.png" width="16" alt="" style="filter: brightness(0) invert(1);">How-to-use</ul>
+                <ul class="routBtn" id="updateBtn"><img src="/vectors/icons/refresh (2).png" width="18" alt="" style="filter: brightness(0) invert(1);">Updates</ul>
+                <ul class="routBtn"><img src="/vectors/icons/dark-mode.png" width="18" alt="" style="filter: brightness(0) invert(1);">Mode</ul>
+                </div>
+            </div>
         </span>
     </div>
 
-    <div id="previewPage">
-        <span id="headPad">
-            {{!-- <p id="title">Welcome to NotePad!</p> --}}
-            <span id="headPadBtns">
-            {{!-- <span>search</span> --}}
-            <button id="createBtn" class="crtBtn">
-                <img src="/vectors/icons/addBtnv2.png" width="20" alt="">
-            </button>
-            </span>
-           
-            
-        </span>
-        <div> 
-            {{#each notePath}} 
-            <div 
-                style="display: flex; justify-content:space-between; margin-top:5px; margin-bottom:-2px; font-size: 20px;">
-                <p class="noteTitleClass" id="titleFromData" style="margin-top:5px; margin-bottom:-2px; font-size: 12px; padding-top: 12px; padding-bottom: 12px; white-space-nowrap; line-clamp: 1; text-overflow: ellipsis; width: 70%; overflow: hidden;">{{this.title}}</p>
-                <span style="display: flex; flex-wrap: nowrap; display: justify-content: space-between; align-items: center; gap: 3px; padding-left: 5px;">
-                    <span class="editNote"
-                    hx-get="/note/{{this.id}}"
-                    hx-target="#noteContent"
-                    hx-swap="innerHTML"
-                    hx-trigger="click"><img src="/vectors/icons/edit.png" alt="" width="15" height="auto"></span>
-                    <span class="deleteBtn" onclick="Delete({{id}})" hx-delete="/delete/{{id}}">
-                    {{!-- just testing if i can delete this note --}}
-                    <img src="/vectors/icons/trash-bin.png" alt="" width="11" height="auto"></span>    
-                </span>
-            </div>
-            {{/each}}
-        </div>
-    </div>
-    <div id="createPage" style="display: none;">
-        <div id="subNavi">
-            <span id="noteSaveMgs" style="display: none;">
-            <span id="popUp">
-                <img src="/vectors/icons/quality.png"  width="16" alt="">
-                Saved
-                <span style="display: flex; align-items: center; gap: 2px;">
-                    <div style="background-color: green; height:4px; width: 4px;  border-radius: 3px;"></div>
-                    <div style="background-color: rgb(5, 197, 5); height:4px; width: 4px;  border-radius: 3px;"></div>
-                    <div style="background-color: rgb(121, 210, 121); height:4px; width: 4px;  border-radius: 3px;"></div>
-                </span>
-            </span>
-            </span>
-        </div>
-        <div>
-            <span></span>
-            
-            <textarea id="title" rows="1" placeholder="Title"></textarea>
-            <textarea id="paragraph" placeholder="Your journey starts now..."></textarea>
-        </div>
-        <div id="floatsPanel">
-            <button id="saveBtn">
-                <img src="/vectors/icons/savebtnv2.png" width="20" alt="">
-            </button>
-            <button id="closeBtn">
-                <img src="/vectors/icons/closebtnv2.png" width="16" alt="">
-            </button>
-        </div>
-
-    </div>
-        <div id="editPage" style="display: none;">
-        <span id="changesSaveMgs" style="display: none;">changes saved!</span>
-        {{!-- Editing Mode --}}
-        <div id="noteContentContainer">
-            <div id="noteContent">
-            Contents for notes are shown here
+    {{!-- dropdown menu features --}}
+    <div id="bodyMenuFeat" style="display: none;">
+        <div id="trashPage" style="display: none;">
+            <div class="pageConstructionMgs">
+                <div class="menuPageFeaIcon"><img src="/vectors/icons/construction.png" width="40" alt=""></div>
+                <p class="menuPageFeaTitle">Trash Page</p>
+                <p class="menuPageFeaMgs">Sorry, Page under construction!</p>
             </div>
         </div>
 
-         <div id="floatsPanelContent">
-            {{!-- still working on this append feature --}}
-            {{!-- <button id="appendBtn">
-                <img src="/vectors/icons/savebtnv2.png" width="20" alt="">
-            </button> --}}
-            <button id="closeEditPageBtn">
-                <img src="/vectors/icons/closebtnv2.png" width="16" alt="">
-            </button>
+        <div id="lockedPage" style="display: none;">
+            <div class="pageConstructionMgs">
+                <div class="menuPageFeaIcon"><img src="/vectors/icons/construction.png" width="40" alt=""></div>
+                <p class="menuPageFeaTitle">Locked Notes</p>
+                <p class="menuPageFeaMgs">Sorry, Page under construction!</p>
+            </div>
+        </div>
+
+        <div id="howToUsePage" style="display: none;">
+            <div class="pageConstructionMgs">
+                <div class="menuPageFeaIcon"><img src="/vectors/icons/construction.png" width="40" alt=""></div>
+                <p class="menuPageFeaTitle">How-To-Use</p>
+                <p class="menuPageFeaMgs">Sorry, Page under construction!</p>
+            </div>
+        </div>
+
+        <div id="updatePage" style="display: none;">
+            <div class="pageConstructionMgs">
+                <div class="menuPageFeaIcon"><img src="/vectors/icons/construction.png" width="40" alt=""></div>
+                <p class="menuPageFeaTitle">Updates</p>
+                <p class="menuPageFeaMgs">Sorry, Page under construction!</p>
+            </div>
         </div>
     </div>
+
+    {{!-- for preview, create & editpage --}}
+    <div id="bodyNoteContents">
+        <div id="previewPage">
+            <div id="secAddBtn"><img src="/vectors/icons/addBtnv2.png" width="16" alt="" style="filter: brightness(0) invert(1);">Create note</div>
+            <span id="headPad">
+                {{!-- <p id="title">Welcome to NotePad!</p> --}}
+                <span id="headPadBtns">
+                {{!-- <span>search</span> --}}
+                <button id="createBtn" class="crtBtn">
+                    <img src="/vectors/icons/addBtnv2.png" width="20" alt="">
+                </button>
+                </span>
+            
+                
+            </span>
+            <div> 
+                {{#each notePath}} 
+                <div id="notBar">
+                    <p class="noteTitleClass" id="titleFromData" style=" font-size: 12px; padding-top: 5px; padding-bottom: 5px; white-space-nowrap; line-clamp: 1; text-overflow: ellipsis; width: 70%; overflow: hidden;">{{this.title}}</p>
+                    <span style="display: flex; flex-wrap: nowrap; display: justify-content: space-between; align-items: center; gap: 5px; padding-left: 5px;">
+                        <span class="editNote"
+                        hx-get="/note/{{this.id}}"
+                        hx-target="#noteContent"
+                        hx-swap="innerHTML"
+                        hx-trigger="click"><img src="/vectors/icons/edit.png" alt="" width="19" height="auto"></span>
+                        <span class="deleteBtn" onclick="Delete({{id}})" hx-delete="/delete/{{id}}">
+                        {{!-- just testing if i can delete this note --}}
+                        <img src="/vectors/icons/trash-bin.png" alt="" width="14" height="auto"></span>    
+                    </span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div id="createPage" style="display: none;">
+            <div id="subNavi">
+                <span id="noteSaveMgs" style="display: none;">
+                <span id="popUp">
+                    <img src="/vectors/icons/quality.png"  width="16" alt="">
+                    Saved
+                    <span style="display: flex; align-items: center; gap: 2px;">
+                        <div style="background-color: green; height:4px; width: 4px;  border-radius: 3px;"></div>
+                        <div style="background-color: rgb(5, 197, 5); height:4px; width: 4px;  border-radius: 3px;"></div>
+                        <div style="background-color: rgb(121, 210, 121); height:4px; width: 4px;  border-radius: 3px;"></div>
+                    </span>
+                </span>
+                </span>
+            </div>
+            <div>
+                <span></span>
+                
+                <textarea id="title" rows="1" placeholder="#Title here..."></textarea>
+                <textarea id="paragraph" placeholder="#Description here..."></textarea>
+            </div>
+            <div id="floatsPanel">
+                <button id="saveBtn">
+                    <img src="/vectors/icons/savebtnv2.png" width="20" alt="">
+                </button>
+                <button id="closeBtn">
+                    <img src="/vectors/icons/closebtnv2.png" width="16" alt="">
+                </button>
+            </div>
+
+        </div>
+            <div id="editPage" style="display: none;">
+            <span id="changesSaveMgs" style="display: none;">changes saved!</span>
+            {{!-- Editing Mode --}}
+            <div id="noteContentContainer">
+                <div id="noteContent">
+                Contents for notes are shown here
+                </div>
+            </div>
+
+            <div id="floatsPanelContent">
+                {{!-- still working on this append feature --}}
+                {{!-- <button id="appendBtn">
+                    <img src="/vectors/icons/savebtnv2.png" width="20" alt="">
+                </button> --}}
+                <button id="closeEditPageBtn">
+                    <img src="/vectors/icons/closebtnv2.png" width="16" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="./js/notepad.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/htmx.min.js"></script>
